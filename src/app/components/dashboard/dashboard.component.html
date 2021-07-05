@@ -1,0 +1,64 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+      <img class="brand-logo" src="assets/logo.png" alt="Logo" style="margin-right: 10px;" height="70px">
+       LIVRE EN FOLIE
+  </a>
+
+  <div (click)="logOut()" class="col-sm-3 col-md-2 mr-0" style="width: 100px !important; margin-right: 20px; color: white;">
+      <a><i class="fas fa-sign-out-alt"></i> Sortir</a>
+  </div> 
+</nav>
+
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <br/><br/><br/>
+
+          <li class="nav-item">
+            <a class="nav-link"   [routerLinkActive]="'active'" [routerLink]="['/dashboard/user']">
+              <i class="fas fa-user"></i>Clients
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard/compte']">
+              <i class="fas fa-file"></i>Compte
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/dashboard/operation']">
+              <i class="fas fa-folder"></i>Operation
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/dashboard/livre']">
+              <i class="fas fa-folder"></i>Livres
+            </a>
+          </li>
+
+          <hr>
+          
+          <li class="nav-item">
+            <a class="nav-link"   [routerLinkActive]="'active'" [routerLink]="['/dashboard/users']">
+              <i class="fas fa-user"></i>PROFILE
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <br/><br/>
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+</div>

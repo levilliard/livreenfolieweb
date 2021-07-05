@@ -1,0 +1,60 @@
+<div style="padding: 10px 30px; border: solid 1px #ddd; width: 300px;">
+    <div class="content" >
+        <form [formGroup]="filterForm">
+
+             <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+                <h5> Entrez votre code:</h5>
+
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <!-- <label>Code Individu</label> -->
+                        <input matInput placeholder="IMIS-LVOY-XXXX" formControlName="individuId">
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- <div  fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput  placeholder="Nom" formControlName="nom">
+                    </mat-form-field>
+                </div>
+            </div>  -->
+
+            <!--<div  fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput  placeholder="Prenom" formControlName="prenom">
+                    </mat-form-field>
+                </div>
+            </div> -->
+
+            <!-- <div  fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div fxFlexFill>
+                    <mat-form-field class="w-100">
+                        <input matInput  placeholder="Date Naissance" formControlName="dateNaissance" type="date">
+                    </mat-form-field>
+                </div>
+            </div>  -->
+
+            <!-- <div class="loader"  *ngIf="loadingState"></div> -->
+
+            
+            <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+                <div class="row">
+                    <div style="margin-left: 15px;">
+                        <button mat-raised-button color="primary" class="w-100"
+                        (click)="onSave()" type="submit"  [disabled]="!filterForm.valid">Voir Resultat</button>
+                    </div>
+                </div>
+               
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<br/>
+
+<div>
+    <button  mat-raised-button color="primary" style="margin-left: 10px;"  (click)="redirectTo()">Faire une demande</button>
+</div>

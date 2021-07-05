@@ -1,0 +1,65 @@
+
+<div  style="background: #efefef;padding: 20px; margin-right: 20px;">
+  <div style="width: 150px; margin-bottom: 10px;">
+    <input placeholder="Recherche" type="text" class="form-control" (input)="onSearchChange($event.target.value)" size="20">
+  </div>
+  <div class="row">
+    <div class="col-3"  *ngFor="let c of users" style="padding: auto 50px;">
+      <mat-card style="margin-bottom: 20px;">
+        <mat-card-title>
+          {{c.firstName}} {{c.lastName}}
+        </mat-card-title>
+  
+        <mat-card-content style="text-align: center">
+  
+          <img src="assets/images/user.png">
+          
+          <h3>{{c.login}}</h3>
+
+          <div class="btns">
+                <mat-grid-list cols="3">
+              <mat-grid-tile>
+                <button mat-raised-button class="btn1" (click)="openDialog(c, 'Update', '550px', '600px')" [disabled]="!isNotRoot"> Modifier</button>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <button mat-raised-button class="btn2" (click)="openDialog(c, 'Delete', '550px', '600px')" [disabled]="!isNotRoot"> Supprimer</button>
+              </mat-grid-tile>  		  
+  
+              <mat-grid-tile>
+                <button mat-raised-button class="btn3" (click)="openDialog(c, 'Details', '550px', '600px')"> Details</button>
+              </mat-grid-tile> 	  
+  
+              </mat-grid-list>
+            </div>
+        </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-4">
+      <mat-card>
+        <mat-card-title>
+          Nouveau Utilisateur
+        </mat-card-title>
+  
+        <mat-card-subtitle>
+          Niveau
+        </mat-card-subtitle>
+  
+        <mat-card-content>
+           <div class="card1">
+              <button mat-raised-button color="warn" (click)="openDialog(eUser, 'Add', '550px', '600px')"> Ajout</button>
+           </div>
+        </mat-card-content>
+        </mat-card> 
+    </div>
+  </div>
+</div>
+
+<!-- <div style="border: solid 1px #eee; margin: 5px; padding: 5px;">
+  <h2><span class="badge badge-light">Contacts Comptes COVID-19 </span></h2>
+</div>
+
+<mat-tab-group>
+  <mat-tab label="Contacts"> </mat-tab>
+  <mat-tab label="Operations"> </mat-tab>
+  <mat-tab label="Rapports">  </mat-tab>
+</mat-tab-group> -->

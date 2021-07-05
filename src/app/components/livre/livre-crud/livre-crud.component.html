@@ -1,0 +1,69 @@
+<div>
+    <div class="main_color" style="text-align: center; padding: 10px; color: #fff;">
+        Livre
+    </div>
+
+  
+      <form [formGroup]="livreForm" (ngSubmit)="onClickSave()">
+
+        <div class="row">
+
+            <div class="col-8">
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="ISBN" size="20" value={{data.isbn}} formControlName="isbn"
+                            [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Date Publi" size="20" value={{data.dataPub}}
+                            formControlName="dataPub" [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Categorie" size="20" value={{data.categorie}}
+                            formControlName="categorie" [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Auteur" size="20" value={{data.idAuteurs}}
+                            formControlName="idAuteurs" [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Prix" size="20" value={{data.prix}}
+                            formControlName="prix" [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Stock" size="20" value={{data.stock}}
+                            formControlName="stock" [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+            </div>
+        </div>
+
+        <br />
+        <div class="row">
+            <div class="col-3" *ngIf="!isDetails">
+                <button mat-raised-button color="primary" [disabled]="!livreForm.valid"
+                    type="submit">{{data.param}}</button>
+            </div>
+            <div class="col-3">
+                <button mat-raised-button color="warn" (click)="onNoClick()" type="button"> Close</button>
+
+            </div>
+
+        </div>
+    </form>
+</div>

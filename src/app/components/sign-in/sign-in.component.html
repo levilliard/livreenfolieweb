@@ -1,0 +1,60 @@
+<div class="displayTable">
+  <div class="displayTableCell">
+
+
+    <div class="authBlock">
+      <div style="text-align: center;">
+        <img src="../../../assets/logo.png" alt="" height="100">
+      </div>
+
+      <p style="text-align: center; margin-top: 10px;"> Livre En Folie</p>
+
+
+
+        <br/>
+    
+        <div>
+           
+      <div class="redirectToLogin">
+        <span class="redirect" routerLink="/register-user"> S' inscrire</span>
+      </div>
+
+      <div class="formGroup">
+        <input type="text" class="formControl" placeholder="Email" #userName required>
+      </div>
+
+      <div class="formGroup">
+        <input type="password" class="formControl" placeholder="Password" #userPassword required>
+      </div>
+
+      <mat-progress-bar mode="buffer" *ngIf="isLogin"></mat-progress-bar>
+
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="formGroup">
+        <button type="button" class="btn facebookBtn" (click)="signIn(userName.value, userPassword.value)">
+          Se Connecter
+        </button>
+      </div>
+
+      <div class="formGroup" style="display: none;">
+        <span class="or"><span class="orInner">Ou</span></span>
+      </div>
+
+      <!-- Calling GoogleAuth Api from AuthService -->
+      <div class="formGroup" style="display: none;">
+        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+          <i class="fab fa-google-plus-g"></i>
+          Se Connecter avec Google
+        </button>
+      </div>
+
+      <div class="forgotPassword" style="display: none;">
+        <span routerLink="/forgot-password">Mot de passse oublie?</span>
+      </div>
+        </div>
+
+     
+    </div>
+
+  </div>
+</div>

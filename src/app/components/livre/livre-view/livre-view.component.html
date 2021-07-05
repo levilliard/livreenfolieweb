@@ -1,0 +1,86 @@
+<div class="row" style="padding: 20px; border: solid 1px #999;">
+  <div class="col-6" style="border: solid 1px #eee; padding: 20px;">
+    <div style="margin-bottom: 10px;">
+      RECHERCHE:
+    </div>
+    <form [formGroup]="filterForm">
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ISBN" class="form-control" formControlName="isbn">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Categorie" class="form-control" formControlName="categorie">
+        </div>
+      </div>
+      <br />
+
+    </form>
+    <br>
+    <div class="input-group-append">
+      <button class="btn btn-outline-primary" (click)="getData()" type="button">Filtrer</button>
+      &nbsp;<button class="btn btn-outline-secondary" (click)="refresh()" type="button">Actualiser</button>
+      &nbsp;&nbsp;
+      <button class="btn btn-outline-success" (click)="openDialog(livre, 'Add')" type="button">Ajouter
+        Livre</button>
+    </div>
+  </div>
+
+  <div class="col-2"></div>
+  <!-- <div class="col-4">
+    <button class="btn btn-outline-secondary"  (click)="openDialog(livre, 'Add')"  type="button">Ajouter</button>
+   </div> -->
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="Isbn">
+      <th mat-header-cell *matHeaderCellDef> ISBN</th>
+      <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DatePub">
+      <th mat-header-cell *matHeaderCellDef>Date Publi</th>
+      <td mat-cell *matCellDef="let element"> {{element.datePub}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Prix">
+      <th mat-header-cell *matHeaderCellDef> Prix </th>
+      <td mat-cell *matCellDef="let element" style="text-transform: uppercase;"> {{element.prix}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="ACTIONS">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Action Menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openDialog(element, 'Details')">
+            <mat-icon>visibility</mat-icon>
+            <span>Consulter</span>
+          </button>
+
+          <button mat-menu-item (click)="openDialog(element, 'Update')">
+            <mat-icon>update</mat-icon>
+            <span>Editer</span>
+          </button>
+          <button mat-menu-item (click)="toPrint()">
+            <mat-icon>local_printshop</mat-icon>
+            <span>Imprimer</span>
+          </button>
+          <button mat-menu-item (click)="openDialog(element, 'Delete')">
+            <mat-icon>delete</mat-icon>
+            <span>Supprimer</span>
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons></mat-paginator>
+</div>

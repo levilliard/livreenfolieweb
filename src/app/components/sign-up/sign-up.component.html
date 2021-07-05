@@ -1,0 +1,112 @@
+<div class="displayTable">
+  <div class="displayTableCell">
+    <div class="authBlock">
+      <h3>Créer votre compte</h3>
+      <form [formGroup]="UserForm" (ngSubmit)="onClickSave()">
+
+        <table class="test">
+            <tr>
+            <td>
+              <div>
+                <img src="assets/images/dummy-user.png" height="50px">
+              </div>
+              <br/>
+              <div>
+                <mat-form-field>
+                  <input matInput placeholder="Prenom" size="20" formControlName="firstName" >
+                </mat-form-field>
+              </div>
+    
+              <div>
+                <mat-form-field>
+                  <input matInput placeholder="Nom" size="20" formControlName="lastName" >
+                </mat-form-field>
+              </div>	
+            </td>
+         </tr>
+
+         <tr>
+          <td>
+    
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Utilisateur" size="20" formControlName="login" >
+              </mat-form-field>
+            </div>
+          </td>
+          <td>
+    
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Password" size="20" formControlName="password" >
+              </mat-form-field>
+            </div>
+          </td>
+          </tr>
+    
+          <tr>
+            <td>
+              <div>
+                <mat-form-field>
+                  <input matInput placeholder="Numero" formControlName="numero" >
+                </mat-form-field>
+              </div>
+            </td>				
+            <td>
+              <div>
+                <mat-form-field>
+                  <input matInput placeholder="Code Postal" size="20"  formControlName="codePostal" >
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div>
+                <mat-form-field>
+                  <input matInput placeholder="Rue" size="20" formControlName="rue" >
+                </mat-form-field>
+              </div>
+            </td>
+            <td>
+              <div>
+                <mat-form-field>
+                  <input matInput placeholder="Ville" size="20" formControlName="ville" >
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+    
+          <tr>
+            <td>
+      
+              <div>
+                <mat-form-field>
+                  <input matInput placeholder="Email" size="20" formControlName="email" >
+                </mat-form-field>
+              </div>
+    
+            </td>
+          </tr>
+    
+        </table>
+        <div>
+              <table>
+            <tr>
+
+              <td>
+                <button mat-raised-button color="warn" type="submit"> Save</button>
+              </td>
+            </tr>			
+           </table>		
+        </div>
+        </form>
+      </div>
+
+
+    <div class="redirectToLogin">
+      <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+    </div>
+  </div>
+
+</div>

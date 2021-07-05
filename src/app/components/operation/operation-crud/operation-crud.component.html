@@ -1,0 +1,57 @@
+<div>
+    <div class="main_color" style="text-align: center; padding: 10px; color: #fff;">
+        Operation Bancaire
+    </div>
+
+      <form [formGroup]="operationForm" (ngSubmit)="onClickSave()">
+        montant: number;
+        type: string;
+        operationDate: string;
+        compte: Compte
+
+        <div class="row">
+
+            <div class="col-8">
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Type" size="20" value={{data.type}} formControlName="type"
+                            [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Montant" size="20" value={{data.montant}}
+                            formControlName="montant" [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Date Operation" size="20" value={{data.operationDate}}
+                            formControlName="operationDate" [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-select formControlName="compte" required placeholder="Compte">
+                        <mat-option [value]="c" *ngFor="let c of _comptes">{{c.owner}}</mat-option>
+                    </mat-select>
+                </div>
+    
+            </div>
+        </div>
+
+        <br />
+        <div class="row">
+            <div class="col-3" *ngIf="!isDetails">
+                <button mat-raised-button color="primary" [disabled]="!operationForm.valid"
+                    type="submit">{{data.param}}</button>
+            </div>
+            <div class="col-3">
+                <button mat-raised-button color="warn" (click)="onNoClick()" type="button"> Close</button>
+
+            </div>
+
+        </div>
+    </form>
+</div>

@@ -1,0 +1,98 @@
+
+<div>
+	<div class="main_color" style="text-align: center; magin-bottom: 80px; padding: 10px; color: #fff;">
+        Utilisateur
+	</div>
+	<form [formGroup]="UserForm" (ngSubmit)="onClickSave()">
+
+		<table class="test">
+		    <tr>
+				<td>
+					<div>
+						<img src="assets/images/user.png">
+					</div>
+					<br/>
+					<div>
+						<mat-form-field>
+							<input matInput placeholder="Prenom" size="20" value={{data.firstName}} formControlName="firstName" [readonly]="isDelete">
+						</mat-form-field>
+					</div>
+
+					<div>
+						<mat-form-field>
+							<input matInput placeholder="Nom" size="20" value={{data.lastName}} formControlName="lastName" [readonly]="isDelete">
+						</mat-form-field>
+					</div>	
+				</td>
+
+				<td>
+	
+					<div>
+						<mat-form-field>
+							<input matInput placeholder="Utilisateur" size="20" value={{data.login}} formControlName="login" [readonly]="isDelete">
+						</mat-form-field>
+					</div>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<div>
+						<mat-form-field>
+							<input matInput placeholder="Numero" size="20" value={{data.adress.numero}} formControlName="numero" [readonly]="isDelete">
+						</mat-form-field>
+					</div>
+				</td>				
+				<td>
+					<div>
+						<mat-form-field>
+							<input matInput placeholder="Code Postal" size="20" value={{data.adress.codePostal}} formControlName="codePostal" [readonly]="isDelete">
+						</mat-form-field>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<mat-form-field>
+							<input matInput placeholder="Rue" size="20" value={{data.adress.rue}} formControlName="rue" [readonly]="isDelete">
+						</mat-form-field>
+					</div>
+				</td>
+				<td>
+					<div>
+						<mat-form-field>
+							<input matInput placeholder="Ville" size="20" value={{data.adress.ville}} formControlName="ville" [readonly]="isDelete">
+						</mat-form-field>
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+	
+					<div>
+						<mat-form-field>
+							<input matInput placeholder="Email" size="20" value={{data.email}} formControlName="email" [readonly]="isDelete">
+						</mat-form-field>
+					</div>
+
+				</td>
+			</tr>
+
+		</table>
+		<div>
+          <table>
+  			<tr>
+  				<td *ngIf="!isDetails">
+  					<button mat-raised-button color="primary" [disabled]="!UserForm.valid" type="submit">{{data.param}}</button>
+  				</td>
+  				<td>
+  					<button mat-raised-button color="warn" (click)="onNoClick()" type="button"> Fermer</button>
+  				</td>
+  			</tr>			
+		   </table>		
+		</div>
+    </form>
+</div>

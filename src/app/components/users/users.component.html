@@ -1,0 +1,25 @@
+<div class="inner-adjust">
+
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+      <span class="h2">Profile</span> 
+    </div>
+    <!-- Show user data when logged in -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="media">
+          <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.image) ? user.image : '/assets/images/dummy-user.png'}}"
+            alt="{{user.firstName}}">
+          <div class="media-body">
+            <!-- <p>User ID: <strong>{{user.uid}}</strong></p> -->
+            <p>Nom: <strong>{{user.lastName}}</strong></p>
+            <p>Prenom: <strong>{{user.firstName}}</strong></p>
+            <p>login: <strong>{{user.login}}</strong></p>
+            <p>Email Vérifié: <strong>Non</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+  </div>

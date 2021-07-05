@@ -1,0 +1,46 @@
+<div>
+    <div class="main_color" style="text-align: center; padding: 10px; color: #fff;">
+        Compte Bancaire
+    </div>
+
+      <form [formGroup]="compteForm" (ngSubmit)="onClickSave()">
+
+        <div class="row">
+
+            <div class="col-8">
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Numero" size="20" value={{data.numero}} formControlName="numero"
+                            [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="Montant" size="20" value={{data.montant}}
+                            formControlName="montant" [readonly]="isDelete" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-select formControlName="owner" required placeholder="Client">
+                        <mat-option [value]="c.login" *ngFor="let c of _owners">{{c.login}}</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="row">
+            <div class="col-3" *ngIf="!isDetails">
+                <button mat-raised-button color="primary" [disabled]="!compteForm.valid"
+                    type="submit">{{data.param}}</button>
+            </div>
+            <div class="col-3">
+                <button mat-raised-button color="warn" (click)="onNoClick()" type="button"> Close</button>
+
+            </div>
+
+        </div>
+    </form>
+</div>
